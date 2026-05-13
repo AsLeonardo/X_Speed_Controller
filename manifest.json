@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "X Speed",
+  "version": "1.0",
+  "description": "Toggle and adjust X/Twitter playback speed (0.1x – 4.0x) from a popup in the toolbar.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://twitter.com/*", "*://x.com/*"],
+  "action": {
+    "default_title": "X Speed",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*", "*://x.com/*"],
+      "js": ["content.js"],
+      "exclude_matches": ["*://grok.com/*"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
